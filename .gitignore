@@ -1,0 +1,15 @@
+FID/
+garments/
+logs/
+old/
+outputs/
+.vscode
+STUDY/
+tryons/
+weights/
+VITON_traindata/
+VITON_traindata.zip
+inception_v3.pth
+note.md
+__pycache__/
+weights_reconstruct/
