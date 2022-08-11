@@ -51,8 +51,6 @@ for e in range(1, EPOCH):
         c_optim.zero_grad()
         g_optim.zero_grad()
 
-
-
         t_optim.zero_grad()
         c_optim.zero_grad()
         c1, c2, c3 = c_model(p_img)
