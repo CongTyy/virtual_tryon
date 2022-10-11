@@ -15,10 +15,6 @@ GAE = 10
 GCYCLE = 10
 GS = 1
 GC = 1
-<<<<<<< HEAD
 GP = 10
 
 
-=======
-GP = 10
->>>>>>> origin/main
