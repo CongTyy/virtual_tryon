@@ -4,6 +4,7 @@ from torch.utils.data import Dataset
 import numpy as np
 import torchvision.transforms as transforms
 
+
 class My_data(Dataset):
     def __init__(self) -> None:
         super().__init__()
