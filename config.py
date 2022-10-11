@@ -16,3 +16,5 @@ GCYCLE = 10
 GS = 1
 GC = 1
 GP = 10
+
+
