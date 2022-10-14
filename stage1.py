@@ -21,17 +21,6 @@ G_B = Generator().to(device)
 # G_A.load_state_dict(torch.load("weights_stage1/G_B_stage1_0.pth"))
 # G_B = nn.DataParallel(G_B, device_ids=[0, 1])
 
-# Critic_32 = Critic(32, 4).to(device)
-# Critic_32 = nn.DataParallel(Critic_32, device_ids=[0, 1])
-# Critic_64 = Critic(64, 3).to(device)
-# Critic_64 = nn.DataParallel(Critic_64, device_ids=[0, 1])
-# Critic_128 = Critic(128, 2).to(device)
-# Critic_128 = nn.DataParallel(Critic_128, device_ids=[0, 1])
-# Critic_256 = Critic(256, 1).to(device)
-# Critic_256 = nn.DataParallel(Critic_256, device_ids=[0, 1])
-# Critic_512 = Critic(512, 0).to(device)
-# Critic_512 = nn.DataParallel(Critic_512, device_ids=[0, 1])
-
 GA_optim = optim.Adam(G_A.parameters(), lr = lr, betas=betas, weight_decay=weight_decay)
 GB_optim = optim.Adam(G_B.parameters(), lr = lr/10, betas=betas, weight_decay=weight_decay)
 GA_lr_sche = lr_scheduler.StepLR(GA_optim, step_size= 1, gamma=0.5)
@@ -46,20 +35,10 @@ l1 = nn.L1Loss().to(device)
 def save_model(e):
     torch.save(G_A.state_dict(), f'weights_stage1/G_A_stage1_{e}.pth')
     torch.save(G_B.state_dict(), f'weights_stage1/G_B_stage1_{e}.pth')
-    # torch.save(Critic_32.state_dict(), f'weights_stage1/Critic_32_stage1_{e}.pth')
-    # torch.save(Critic_64.state_dict(), f'weights_stage1/Critic_64_stage1_{e}.pth')
-    # torch.save(Critic_128.state_dict(), f'weights_stage1/Critic_128_stage1_{e}.pth')
-    # torch.save(Critic_256.state_dict(), f'weights_stage1/Critic_256_stage1_{e}.pth')
-    # torch.save(Critic_512.state_dict(), f'weights_stage1/Critic_512_stage1_{e}.pth')
 
 def model_train():
     G_A.train()
     G_B.train()
-    # Critic_32.train()
-    # Critic_64.train()
-    # Critic_128.train()
-    # Critic_256.train()
-    # Critic_512.train()
 
 global_step = 0
 _i_loss = []
